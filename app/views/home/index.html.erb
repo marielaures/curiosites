@@ -1,10 +1,23 @@
-<h1><%= @name %></h1>
-<p><%= @surname_1 %></p>
-<p><%= @surname_2 %></p>
-<p><%= @description %></p>
-<p><%= @comment %></p>
-
-<h2> Ses curiosités </h2>
-<% @curiosites.each do |curiosity| %>
-    <p> - <%= curiosity %></p>
-<% end %>
+<h2> Curiosities </h2>
+<section id="curiosities">
+    <div class="container">
+        <% @my_curiosities.each_with_index do |curiosity, index| %>
+            <% if index == 0 || index == 4 %>
+                <div class="row">
+                    
+            <% end %>
+                <div class="col-sm-3">
+                    <div class="item">
+                        <a href="<%= curiosity.image_url %>" target="_blank">
+                            <img class="picture" title="<%= curiosity.image_url %>"></img>
+                        </a>
+                    </div>
+                    <h3><%= curiosity.name %></h3>
+                    <p><%= curiosity.description %></p>
+                </div>
+            <% if index ==3 || index == 7 %>
+                </div>
+            <% end %>
+        <% end %>
+    </div>
+</section>
